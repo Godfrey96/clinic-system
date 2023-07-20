@@ -1,0 +1,44 @@
+<header>
+  <app-home-header></app-home-header>
+</header>
+
+<!-- Container-->
+<div class="con">
+  <!-- Container for logo-->
+  <div class="logo_container" style="display: none">
+    <img src="images/logo-one.jpg" style="height: 8rem" />
+  </div>
+  <!-- Container for form-->
+  <div class="form-con">
+    <form [formGroup]="loginForm">
+      <h3>Log in</h3>
+      <div>
+        <input
+          type="email"
+          name="email"
+          placeholder="email"
+          formControlName="email"
+          class="box"
+          required
+        />
+      </div>
+
+      <div class="box">
+        <input
+          [type]="changetype ? 'password' : 'text'"
+          name="password"
+          formControlName="password"
+          style="background: none !important"
+          placeholder="Password"
+          required
+        />
+        <span (click)="viewPassword()">
+          <i [ngClass]="visible ? 'pi pi-eye' : 'pi pi-eye-slash'"> </i>
+        </span>
+      </div>
+      <button class="btn" (click)="onSubmit()">Login</button>
+      <p><a href="">Forgot Your Password</a></p>
+      <p><a routerLink="/login/signup">Register</a></p>
+    </form>
+  </div>
+</div>

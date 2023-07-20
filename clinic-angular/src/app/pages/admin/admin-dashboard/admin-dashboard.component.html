@@ -1,0 +1,123 @@
+<!-- Page Header -->
+<div class="page-header">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 class="page-title">Welcome Admin!</h3>
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item active">Dashboard</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- /Page Header -->
+
+<div class="row">
+  <div class="col-xl-3 col-sm-6 col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="dash-widget-header">
+          <span class="dash-widget-icon text-primary border-primary">
+            <i class="fa fa-users"></i>
+          </span>
+          <div class="dash-count">{{ totDoctors }}</div>
+        </div>
+        <div class="dash-widget-info">
+          <div (click)="doctorCard()"></div>
+          <h6 class="text-muted">Doctors</h6>
+          <div class="progress progress-sm">
+            <div class="progress-bar bg-primary w-50"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-sm-6 col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="dash-widget-header">
+          <span class="dash-widget-icon text-success">
+            <i class="fa fa-users"></i>
+          </span>
+          <div class="dash-count">
+            {{ totPatients }}
+          </div>
+        </div>
+        <div class="dash-widget-info">
+          <h6 class="text-muted">Patients</h6>
+          <div class="progress progress-sm">
+            <div class="progress-bar bg-success w-50"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-sm-6 col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="dash-widget-header">
+          <span class="dash-widget-icon text-danger border-danger">
+            <i class="fa fa-users"></i>
+          </span>
+          <div class="dash-count">
+            {{ totReceptionists }}
+          </div>
+        </div>
+        <div class="dash-widget-info">
+          <h6 class="text-muted">Receptionists</h6>
+          <div class="progress progress-sm">
+            <div class="progress-bar bg-danger w-50"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-sm-6 col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="dash-widget-header">
+          <span class="dash-widget-icon text-warning border-warning">
+            <i class="fa fa-folder"></i>
+          </span>
+          <div class="dash-count">
+            {{ totAppointments }}
+          </div>
+        </div>
+        <div class="dash-widget-info">
+          <h6 class="text-muted">Appointments</h6>
+          <div class="progress progress-sm">
+            <div class="progress-bar bg-warning w-50"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="row box">
+    <div class="col-lg-6">
+      <hr />
+      <app-chart></app-chart>
+      <!-- <full-calendar [options]="calendarOptions"></full-calendar> -->
+    </div>
+    <div class="col-lg-6">
+      <hr />
+      <app-pie></app-pie>
+    </div>
+  </div>
+  <!-- <ng-template #template>
+    <div class="modal-header bg-primary text-white">
+      <h4 class="modal-title pull-left">Sanskar's Presenty Report</h4>
+      <button
+        type="button"
+        class="btn-close close pull-right"
+        aria-label="Close"
+        (click)="modalRef?.hide()"
+        style="border: 3px solid green !important"
+      >
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">Sanskar has {{ title }} on {{ start | date }}</div>
+  </ng-template> -->
+</div>

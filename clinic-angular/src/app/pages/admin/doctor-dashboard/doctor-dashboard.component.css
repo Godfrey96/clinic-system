@@ -1,0 +1,13 @@
+.p-button .p-button-label {
+    background: #10564F
+}
+
+.p-button.p-button-success {
+    background: #21B6A8;
+    color: #fff;
+    border: none;
+}
+
+.p-button.p-button-success:hover {
+    background: #10564F;
+}

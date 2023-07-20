@@ -1,0 +1,17 @@
+export * from './adminController.service';
+import { AdminControllerService } from './adminController.service';
+export * from './appointmentController.service';
+import { AppointmentControllerService } from './appointmentController.service';
+export * from './authController.service';
+import { AuthControllerService } from './authController.service';
+export * from './doctorController.service';
+import { DoctorControllerService } from './doctorController.service';
+export * from './patientController.service';
+import { PatientControllerService } from './patientController.service';
+export * from './receptionistController.service';
+import { ReceptionistControllerService } from './receptionistController.service';
+export * from './slotController.service';
+import { SlotControllerService } from './slotController.service';
+export * from './userController.service';
+import { UserControllerService } from './userController.service';
+export const APIS = [AdminControllerService, AppointmentControllerService, AuthControllerService, DoctorControllerService, PatientControllerService, ReceptionistControllerService, SlotControllerService, UserControllerService];

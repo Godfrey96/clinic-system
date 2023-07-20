@@ -1,0 +1,47 @@
+<br />
+<br />
+<br />
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card">
+          <p-table [value]="appointments" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+            [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+              <tr>
+                <th style="width: 25%">Doctor</th>
+                <th style="width: 25%">Booking Date</th>
+                <th style="width: 25%">Time</th>
+                <th style="width: 25%">Problem(Details)</th>
+                <th style="width: 25%">Status</th>
+                <!-- <th style="width: 25%">Action</th> -->
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-appointments>
+              <tr>
+                <td *ngIf="appointments.doctor?.firstName === null">
+                  Not Assigned
+                </td>
+                <td *ngIf="!(appointments.doctor?.firstName === null)">
+                  {{ appointments.doctor?.firstName }}
+                  {{ appointments.doctor?.lastName }}
+                </td>
+                <td>
+                  {{ appointments.appointmentBookingDate | date }}
+                </td>
+                <td *ngIf="appointments.slot === null">Not Assigned</td>
+                <td *ngIf="!(appointments.slot === null)">
+                  {{ appointments.slot.time }}
+                </td>
+                <td>{{ appointments.problem }}</td>
+                <td>{{ appointments.status }}</td>
+                <td>{{ appointments.contactNo }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

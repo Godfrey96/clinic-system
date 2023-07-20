@@ -1,0 +1,39 @@
+<!-- Page Header -->
+<div class="page-header" style="margin-top: 8% !important;">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3 class="page-title">List of Appointments</h3>
+    </div>
+  </div>
+</div>
+<!-- /Page Header -->
+
+<div class="card" style="margin-top: 2% !important">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <div class="card-body">
+        <div class="card">
+          <form [formGroup]="addSlotForm">
+            <div class="row mb-3">
+              <div class="row mb-3">
+                <label class="text-center" for="sessionDuration">Session Duration</label>
+                <div class="session">
+                  <input name="sessionDuration" type="number" class="form-control" id="sessionDuration"
+                    placeholder="Enter session duration per hour" formControlName="sessionDuration" />
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <button (click)="addSlotSubmit()" class="btn btn-outline-primary">
+                Add Slot
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+</div>
+<div class="col-sm-3"></div>

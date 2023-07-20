@@ -1,0 +1,87 @@
+
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+li {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+h2 {
+  font-size: 44px;
+  margin-bottom: 15px;
+}
+h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+section,
+.container {
+  position: relative;
+}
+.lead {
+  font-weight: 500;
+}
+
+/*Header*/
+
+header {
+  background: #21b6a8;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+header .navbar-expand-lg .navbar-nav .nav-link {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 10px 24px;
+}
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: #fff;
+}
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #fff;
+}
+
+.navbar-brand img {
+  height: 40px;
+}
+
+.active {
+  background: #10564f;
+  color: #fff;
+}
+
+.active:hover {
+  background: #10564f;
+}
+
+
+@media (min-width: 992px) and (max-width: 1400px) {
+  header .navbar-expand-lg .navbar-nav .nav-link {
+    padding: 10px 11px;
+    font-size: 14px;
+  }
+}

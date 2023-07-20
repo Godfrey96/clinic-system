@@ -1,0 +1,98 @@
+<header>
+  <app-home-header></app-home-header>
+</header>
+
+
+<!-- Container-->
+<div class="con">
+  <!-- Container for logo-->
+  <div class="logo_con" style="display: none">
+    <img src="/src/assets/images/Medi Clinic.png" style="height: 8rem" />
+  </div>
+  <!-- Container for form-->
+  <div class="form-con">
+    <form [formGroup]="signUpForm">
+      <h3>Sign up</h3>
+
+      <div class="form-group">
+        <input type="text" name="email" formControlName="email" placeholder="Email" class="form-control box"
+          [ngClass]="{ 'is-invalid': isSubmitted && signUpFormError['email'].errors }" />
+        <!-- <div *ngIf="isSubmitted && signUpFormError['email'].errors" class="invalid-feedback">
+          <div *ngIf="signUpFormError['email'].errors['required']">Email is required</div>
+          <div *ngIf="signUpFormError['email'].errors['email']">Email is invalid</div>
+        </div> -->
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="firstName" formControlName="firstName" placeholder="First Name"
+          class="form-control box" [ngClass]="{ 'is-invalid': isSubmitted && signUpFormError['firstName'].errors }" />
+        <!-- <div *ngIf="isSubmitted && signUpFormError['firstName'].errors" class="invalid-feedback">
+          <div *ngIf="signUpFormError['firstName'].errors['required']">first name is required</div>
+        </div> -->
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="lastName" formControlName="lastName" placeholder="Last Name" class="form-control box"
+          [ngClass]="{ 'is-invalid': isSubmitted && signUpFormError['lastName'].errors }" />
+        <!-- <div *ngIf="isSubmitted && signUpFormError['lastName'].errors" class="invalid-feedback">
+          <div *ngIf="signUpFormError['lastName'].errors['required']">last name is required</div>
+        </div> -->
+      </div>
+
+
+      <div class="form-group box">
+        <input [type]="changeTypePassword ? 'password' : 'text'" name="password" formControlName="password"
+          placeholder="Password" class="form-control"
+          [ngClass]="{ 'is-invalid': isSubmitted && signUpFormError['password'].errors }" />
+        <span (click)="viewPassword()">
+          <i [ngClass]="visiblePassword ? 'pi pi-eye' : 'pi pi-eye-slash'"> </i>
+        </span>
+
+        <!-- <div *ngIf="isSubmitted && signUpFormError['password'].errors" class="invalid-feedback">
+          <div *ngIf="signUpFormError['password'].errors['required']">Password is required</div>
+          <div *ngIf="signUpFormError['password'].errors['minlength']">
+            Password must be at least 8 characters
+          </div>
+        </div> -->
+
+        <!-- <small *ngIf="signUpFormError['password'].invalid && isSubmitted" class="p-error">Password is required
+        </small> -->
+      </div>
+
+      <div class="form-group box">
+        <input [type]="changeTypeConfirmPassword ? 'password' : 'text'" name="confirmPassword"
+          formControlName="confirmPassword" placeholder="Password" class="form-control"
+          [ngClass]="{ 'is-invalid': isSubmitted && signUpFormError['confirmPassword'].errors }" />
+        <span (click)="viewConfirmPassword()">
+          <i [ngClass]="visibleConfirmPassword ? 'pi pi-eye' : 'pi pi-eye-slash'"> </i>
+        </span>
+        <!-- <div *ngIf="isSubmitted && signUpFormError['confirmPassword'].errors" class="invalid-feedback">
+          <div *ngIf="signUpFormError['confirmPassword'].errors['required']">
+            Confirm Password is required
+          </div>
+          <div *ngIf="signUpFormError['confirmPassword'].errors['matching']">
+            Confirm Password does not match
+          </div>
+        </div> -->
+      </div>
+      <!-- <span (click)="viewConfirmPassword()">
+          <i [ngClass]="visibleConfirmPassword ? 'pi pi-eye' : 'pi pi-eye-slash'"> </i>
+        </span> -->
+      <!-- <small *ngIf="signUpFormError['confirmPassword'].invalid && isSubmitted" class="p-error">ConfirmPassword is
+          required
+        </small> -->
+      <!-- </div> -->
+
+
+
+      <div class="danger" style="color: red;" *ngIf="passwordsVerify() != true">
+        Passwords Do Not Match!!!!!
+      </div>
+
+
+
+      <button class="btn" (click)="proceedRegistration()">Register</button>
+      <p>Already Have An Account? <a routerLink="/login/login">Login</a></p>
+    </form>
+  </div>
+</div>

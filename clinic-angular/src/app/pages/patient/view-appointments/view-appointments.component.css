@@ -1,0 +1,12 @@
+.statusOptions{
+  border: 2px solid #10564f;
+  margin-left:2%;
+  border-radius: .5rem;
+  width: 150px;
+  height: 2rem;
+}
+label{
+  width: 100px;
+  font-size: 1rem;
+  font-weight: 600;
+}

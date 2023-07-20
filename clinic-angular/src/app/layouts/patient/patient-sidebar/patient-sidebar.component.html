@@ -1,0 +1,58 @@
+<br />
+<br />
+<br />
+
+<!-- Profile Sidebar -->
+<div class="profile-sidebar">
+  <div class="widget-profile pro-widget-content">
+    <div class="profile-info-widget">
+      <a href="#" class="booking-doc-img">
+        <img src="assets/images/pat.jpg" alt="User Image" />
+      </a>
+      <div class="profile-det-info">
+        <h3>{{ patient?.firstName }} {{ patient?.lastName }}</h3>
+
+        <div class="patient-details">
+          <h5 class="mb-0">{{ patient?.email }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-widget">
+    <nav class="dashboard-menu">
+      <ul>
+        <!-- <li>
+          <a routerLink="/patient-dashboard" routerLinkActive="active">
+            <i class="pi pi-desktop"></i>
+            <span>Dashboard</span>
+          </a>
+        </li> -->
+        <li>
+          <a routerLink="/view-appointments" routerLinkActive="active">
+            <i class="pi pi-calendar"></i>
+            <span>Appointments</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/profile-settings" routerLinkActive="active">
+            <i class="pi pi-user"></i>
+            <span>Profile Settings</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/change-password">
+            <i class="pi pi-user-edit"></i>
+            <span>Change Password</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="" (click)="logout()">
+            <i class="pi pi-sign-out"></i>
+            <span>Logout</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<!-- /Profile Sidebar -->

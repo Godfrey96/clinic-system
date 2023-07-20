@@ -1,0 +1,70 @@
+<br />
+<br />
+<br />
+<!-- Page Header -->
+<div class="page-header">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 class="page-title">Book an Appointment</h3>
+    </div>
+  </div>
+</div>
+<!-- /Page Header -->
+
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="bookAppointmentForm">
+          <div class="row mb-3">
+            <div class="row mb-3">
+              <label for="firstName">Booking Date</label>
+              <div class="col-12">
+                <!-- <input
+                  name="firstName"
+                  type="date"
+                  class="form-control"
+                  id=""
+                  placeholder="Enter first name"
+                  formControlName="bookingdate"
+                /> -->
+                <p-calendar
+                  formControlName="date"
+                  [minDate]="minDate"
+                  [maxDate]="maxDate"
+                  [showIcon]="true"
+                  [readonlyInput]="true"
+                ></p-calendar>
+                <!-- <p-calendar [formControlName]="'selectedDate'" [disabledDates]="disabledDates"></p-calendar> -->
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="row mb-3">
+              <label for="lastName">Details of your problem</label>
+              <div>
+                <textarea
+                  id="details"
+                  name="details"
+                  rows="4"
+                  cols="50"
+                  class="form-control"
+                  placeholder="e.g Flu, Headache"
+                  formControlName="details"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button (click)="bookApp()" class="btn btn-outline-primary">
+              Book Now
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3"></div>
+</div>

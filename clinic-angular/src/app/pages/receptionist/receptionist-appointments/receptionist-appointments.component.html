@@ -1,0 +1,115 @@
+<!-- Page Header -->
+<div class="page-header" style="margin-top: 8% !important;">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 class="page-title">List of Appointments</h3>
+    </div>
+  </div>
+</div>
+<!-- /Page Header -->
+
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card">
+          <p-table [value]="appointments" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+            [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Patient Name</th>
+                <th>Doctor Name</th>
+                <th>Appointment date</th>
+                <th>Slot</th>
+                <th>Status</th>
+                <th>Problem</th>
+                <th>Action</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-appointment>
+              <tr>
+                <td>
+                  {{ appointment.patient?.firstName }}
+                </td>
+                <td *ngIf="appointment.doctor?.firstName === null">
+                  Not Assigned
+                </td>
+                <td *ngIf="!(appointment.doctor?.firstName === null)">
+                  {{ appointment.doctor?.firstName }}
+                </td>
+                <td>{{ appointment.appointmentBookingDate | date }}</td>
+                <td *ngIf="appointment.slot === null">Not Assigned</td>
+                <td *ngIf="!(appointment.slot === null)">
+                  {{ appointment.slot?.time }}
+                </td>
+                <td>{{ appointment.status }}</td>
+                <td>{{ appointment.problem }}</td>
+                <td>
+                  <button *ngIf="(appointment.status === 'Cancel')" [disabled]="(appointment.status === 'Cancel')"
+                    pButton type="button" data-bs-toggle="modal" data-bs-target="#userDetails" icon="pi pi-user-edit"
+                    class="p-button-success p-button-rounded mr-2"></button>
+                  <button *ngIf="(appointment.status === 'Done')" [disabled]="(appointment.status === 'Done')" pButton
+                    type="button" data-bs-toggle="modal" data-bs-target="#userDetails" icon="pi pi-user-edit"
+                    class="p-button-success p-button-rounded mr-2"></button>
+                  <button *ngIf="!(appointment.status === 'Cancel' || appointment.status === 'Done')"
+                    (click)="showDialog('top', appointment.appointmentId)" pButton type="button" data-bs-toggle="modal"
+                    data-bs-target="#userDetails" icon="pi pi-user-edit"
+                    class="p-button-success p-button-rounded mr-2"></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card flex justify-content-center">
+  <p-dialog header="Update Appointment Details" [(visible)]="visible" [position]="position" [modal]="true"
+    [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+    <form [formGroup]="appointmentForm">
+      <div class="row mb-3">
+        <div class="col-md-8">
+          <label for="doctorId">Doctor:</label>
+          <!-- <p-dropdown
+            formControlName="doctorId"
+            [options]="doctors"
+            (ngModelChange)="getSlots()"
+            optionLabel="firstName"
+          ></p-dropdown> -->
+          <select formControlName="doctorId" (change)="getSlots()" class="assignOptions">
+            <option *ngFor="let doctor of doctors" [value]="doctor.userId">
+              {{ doctor.firstName }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-8">
+          <label for="slotId">Slot:</label>
+          <select formControlName="slotId" class="assignOptions">
+            <option *ngFor="let slot of slots" [value]="slot.slotId">
+              {{ slot.time }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-8">
+          <label for="status">Status:</label>
+          <select formControlName="status" class="assignOptions">
+            <option *ngFor="let status of statuses" [value]="status">
+              {{ status }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <p-button (click)="submitAppointment()" label="Assign Appointment"></p-button>
+    </form>
+  </p-dialog>
+</div>

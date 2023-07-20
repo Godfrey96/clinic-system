@@ -1,0 +1,90 @@
+<!-- Page Header -->
+<div class="page-header">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 class="page-title">Add New Receptionist Form</h3>
+    </div>
+  </div>
+</div>
+<!-- /Page Header -->
+
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="addReceptionistForm">
+          <div class="row mb-3">
+            <div class="row mb-3">
+              <label for="firstName">First name</label>
+              <div>
+                <input
+                  name="firstName"
+                  type="text"
+                  class="form-control"
+                  id="firstName"
+                  placeholder="Enter first name"
+                  formControlName="firstName"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="row mb-3">
+              <label for="lastName">Last name</label>
+              <div>
+                <input
+                  name="lastName"
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  placeholder="Enter last name"
+                  formControlName="lastName"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="row mb-3">
+              <label for="Email">Email</label>
+              <div>
+                <input
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  id="Email"
+                  placeholder="Enter an email"
+                  formControlName="email"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="row mb-3">
+              <label for="password">Password</label>
+              <div>
+                <input
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Enter password"
+                  formControlName="password"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button
+              (click)="proceedAddReceptionist()"
+              class="btn btn-outline-primary"
+            >
+              Save Receptionist
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3"></div>
+</div>

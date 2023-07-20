@@ -1,0 +1,11 @@
+<app-main *ngIf="isUserAdmin()"></app-main>
+
+<app-patient-layout *ngIf="isUserPatient()"></app-patient-layout>
+
+<app-doctor-layout *ngIf="isUserDoctor()"></app-doctor-layout>
+
+<app-receptionist-layout *ngIf="isUserReception()"></app-receptionist-layout>
+
+<router-outlet *ngIf="!this.userService.isLoggedIn()"></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+<ngx-ui-loader></ngx-ui-loader>

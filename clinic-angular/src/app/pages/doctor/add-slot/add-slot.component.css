@@ -1,0 +1,22 @@
+.btn-outline-primary {
+  color: #fff;
+  border-color: #21b6a8;
+  background: #21b6a8;
+}
+
+.btn-outline-primary:hover{
+  background: #10564f;
+}
+
+label{
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.session{
+  padding: 1rem 3rem 1rem 3rem;
+}
+
+button {
+  margin-bottom: 2rem;
+}

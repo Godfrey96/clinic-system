@@ -1,0 +1,103 @@
+<br />
+<br />
+<br />
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="row">
+    <div class="col-sm-12 mt-2">
+      <button (click)="showDialog('middle')" pButton pRipple label="Book an Appointment" icon="pi pi-plus"
+        class="p-button-success"></button>
+    </div>
+  </div>
+</div>
+<!-- /Page Header -->
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card">
+          <div class="text-center alert-success" role="alert" *ngIf="appointments.length > 0">
+            <p-table [value]="appointments" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+              [tableStyle]="{ 'min-width': '50rem' }">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Doctor</th>
+                  <th>Booking Date</th>
+                  <th>Time</th>
+                  <th>Problem(Details)</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-appointment>
+                <tr>
+                  <td *ngIf="appointment.doctor?.firstName === null">
+                    Not Assigned
+                  </td>
+                  <td *ngIf="!(appointment.doctor?.firstName === null)">
+                    {{ appointment.doctor?.firstName }}
+                    {{ appointment.doctor?.lastName }}
+                  </td>
+                  <td>
+                    {{ appointment.appointmentBookingDate | date }}
+                  </td>
+                  <td *ngIf="appointment.slot === null">Not Assigned</td>
+                  <td *ngIf="!(appointment.slot === null)">
+                    {{ appointment.slot.time }}
+                  </td>
+                  <td>{{ appointment.problem }}</td>
+                  <td>{{ appointment.status }}</td>
+                  <td>{{ appointment.contactNo }}</td>
+                  <td>
+                    <button *ngIf="(appointment.status === 'Done')" [disabled]="(appointment.status === 'Done')"
+                      (click)="showDialogStatus('top', appointment.appointmentId)" pButton type="button"
+                      data-bs-toggle="modal" data-bs-target="#userDetails" icon="pi pi-user-edit"
+                      class="p-button-success mr-2">
+                    </button>
+                    <button *ngIf="(appointment.status === 'Cancel')" [disabled]="(appointment.status === 'Cancel')"
+                      (click)="showDialogStatus('top', appointment.appointmentId)" pButton type="button"
+                      data-bs-toggle="modal" data-bs-target="#userDetails" icon="pi pi-user-edit"
+                      class="p-button-success mr-2">
+                    </button>
+                    <butto *ngIf="(appointment.status === 'Pending' || appointment.status === 'Approved')"
+                      (click)="showDialogStatus('top', appointment.appointmentId)" pButton type="button"
+                      data-bs-toggle="modal" data-bs-target="#userDetails" icon="pi pi-user-edit"
+                      class="p-button-success mr-2">
+                    </butto>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+
+          <div class="text-center alert-success" role="alert" *ngIf="appointments.length <= 0">
+            You currently don't have available appointments. Click the above button to book your first appointment.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card flex justify-content-center">
+  <p-dialog header="Update Appointment Status" [(visible)]="visible" [position]="position" [modal]="true"
+    [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+    <form [formGroup]="appointmentForm">
+
+      <div class="row mb-3">
+        <div class="col-md-8">
+          <label for="status">Status:</label>
+          <select formControlName="status" class="statusOptions">
+            <option *ngFor="let status of statuses" [value]="status">
+              {{ status }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <p-button (click)="updateAppointmentStatus()" label="Update Status"></p-button>
+    </form>
+  </p-dialog>
+</div>

@@ -1,0 +1,20 @@
+.active {
+  background: #10564f;
+  color: #fff;
+}
+
+.active:hover {
+  background: #10564f;
+}
+
+.sidebar-inner  {
+  background: #21B6A8;
+}
+
+.sidebar-inner .sidebar-menu a {
+  text-decoration: none;
+}
+
+.sidebar-inner .sidebar-menu a:hover {
+  background: #10564f;
+}

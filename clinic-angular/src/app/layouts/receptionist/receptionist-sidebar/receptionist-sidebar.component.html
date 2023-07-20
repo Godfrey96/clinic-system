@@ -1,0 +1,68 @@
+<div class="row" style="margin-top: 25%; height: 70% !important">
+  <div class="col-md-5 col-lg-4 col-xl-12 theiaStickySidebar">
+    <!-- Profile Sidebar -->
+
+    <div class="profile-sidebar">
+      <div class="widget-profile pro-widget-content" style="height: 40% !important">
+        <div class="profile-info-widget">
+          <a href="#" class="booking-doc-img">
+            <img src="assets/images/profile.png" alt="User Image" />
+          </a>
+          <div class="patient-details">
+            <h3>{{ firstName }} {{ lastName }}</h3>
+            <h4>{{email}}</h4>
+
+            <h5 class="mb-0">Receptionist</h5>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="dashboard-widget">
+        <nav class="dashboard-menu">
+          <ul>
+            <!-- <li>
+              <a routerLink="/receptionist-dashboard" routerLinkActive="active">
+                <i class="pi pi-desktop"></i>
+
+                <span>Dashboard</span>
+              </a>
+            </li> -->
+            <li>
+              <a routerLink="/receptionist-appointments" routerLinkActive="active">
+                <i class="pi pi-calendar"></i>
+                <span>Appointments</span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/reception-doctors" routerLinkActive="active">
+                <i class="pi pi-users"></i>
+                <span>Doctors</span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/reception-patients" routerLinkActive="active">
+                <i class="pi pi-users"></i>
+                <span>Patients</span>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/change-password" routerLinkActive="active">
+                <i class="pi pi-user-edit"></i>
+
+                <span>Change Password</span>
+              </a>
+            </li>
+            <li>
+              <a (click)="logout()" routerLinkActive="active" style="cursor: pointer;">
+                <i class="pi pi-sign-out"></i>
+
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- /Profile Sidebar -->
+  </div>
